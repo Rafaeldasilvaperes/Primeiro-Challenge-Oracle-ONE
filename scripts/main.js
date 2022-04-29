@@ -24,7 +24,6 @@ function mostrarTextEncriptado(){
 	Encriptar(originaltext);
 	var text = fraseEncriptada;
 	document.getElementById("textareaDiv").innerHTML = text;
-	console.log("Valor VAR FraseENC: " + fraseEncriptada);
 		}
 
 function mostrarTextDescriptado(){
@@ -32,7 +31,6 @@ function mostrarTextDescriptado(){
 	Desencriptar(originaltext);
 	var text = fraseDesencriptada;
 	document.getElementById("textareaDiv").innerHTML = text;
-	console.log("Valor VAR FraseENC: " + fraseEncriptada);
 		}
 
 function contadorLetras(){
@@ -42,27 +40,27 @@ function contadorLetras(){
 
 function checkChar(evento){
 	
-	var char = evento.data;
-	var ascii = char.charCodeAt(0);
-	
-
-	const charactere = String.fromCharCode(ascii);
 	const padrao = '[a-z !,?]';
+	var char = evento.data; 
+	
+	if(char === null){
+		return
+	} 
 
-	if(charactere.match(padrao)){
-		console.log(charactere);
+	if(char.match(padrao)){
 		return true
 	} else{
 		return false
-	}
+	} 
 }
 
-function entradaIncorrecta(evento){
+function entradaIncorreta(evento){
+	
 	if(checkChar(evento) == false){
 		avisoCharIncorreto();
 		evento.preventDefault();
 	} else {return}
-}
+} 
 
 function avisoCharIncorreto(){
 	const wrong = document.querySelector('#textarea-entrada');
@@ -87,30 +85,28 @@ function mensagemCharIncorreto(){
 		textoErro.textContent = "";
 		textoErro.classList.remove('wrong-text');
 	}, 3000)
-	
 }
 
 function copiarTexto(){
 	
-	var element = document.getElementById("textareaDiv");
-	var elementText = element.value;
+	var elemento = document.getElementById("textareaDiv");
+	var texto = elemento.value;
 
-	var inputElement = document.createElement('input');
-	inputElement.setAttribute('value', elementText);
-	document.body.appendChild(inputElement);
-	inputElement.select();
+	var novoInput = document.createElement('input');
+	novoInput.setAttribute('value', texto);
+	document.body.appendChild(novoInput);
+	novoInput.select();
 	document.execCommand('copy');
-	inputElement.parentNode.removeChild(inputElement);
+	novoInput.parentNode.removeChild(novoInput);
 	
-	element.classList.add('oracle-text-textarea')
-	element.textContent = "Mensagem copiada!";
+	elemento.classList.add('oracle-text-textarea')
+	elemento.textContent = "Mensagem copiada!";
 	setTimeout(function(){
-		element.textContent = "";
-		element.classList.remove('oracle-text-textarea')
+		elemento.textContent = "";
+		elemento.classList.remove('oracle-text-textarea')
 	}, 1500)
 
 }
-
 
 var fraseOriginal;
 var fraseEncriptada;
@@ -118,15 +114,16 @@ var fraseDesencriptada;
 
 // Eventos da Textarea de entrada
 const capturaTexto = document.getElementById("textarea");
-capturaTexto.addEventListener("beforeinput", entradaIncorrecta, false); // ao pressionar uma tecla
-capturaTexto.addEventListener("blur", pegaTexto, false); // ao clicar fora da textarea
-capturaTexto.addEventListener("keyup", contadorLetras, false); // após pressionar uma tecla
+capturaTexto.addEventListener("beforeinput", entradaIncorreta, false);  
+capturaTexto.addEventListener("blur", pegaTexto, false); 
+capturaTexto.addEventListener("keyup", contadorLetras, false);
 
+// Eventos botões
 var encrypt = document.getElementById("btn-exec");
-encrypt.addEventListener("click", mostrarTextEncriptado, false);
+encrypt.addEventListener("click", mostrarTextEncriptado, false); 
 
 var descrypt = document.getElementById("btn-exec-des");
-descrypt.addEventListener("click", mostrarTextDescriptado, false);
+descrypt.addEventListener("click", mostrarTextDescriptado, false); 
 
 var copy = document.getElementById('btn-copy1');
-copy.addEventListener("click", copiarTexto, false);
+copy.addEventListener("click", copiarTexto, false); 
