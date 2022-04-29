@@ -32,7 +32,7 @@ O desafio representa a primeira prática do material disponibilizado de Lógica 
 
 ## Entrega de Projeto :heavy_check_mark:
 
-Foram desenvolvidos todos os [requisitos](#requisitos) propostos juntos a funcionalidade extra do botar de "copiar". A aplicação web foi desenvolvida pensando também na responsividade para dispositivos móveis. Você pode utilizar a aplicação no GitHub Pages acessando este [LINK]() .
+Foram desenvolvidos todos os [requisitos](#requisitos) propostos juntos a funcionalidade extra do botar de "copiar". A aplicação web foi desenvolvida pensando também na responsividade para dispositivos móveis. Você pode utilizar a aplicação no GitHub Pages acessando este [LINK](https://rafaeldasilvaperes.github.io/Primeiro-Challenge-Oracle-ONE/) .
 
 <br><br>
 
@@ -69,4 +69,4 @@ This challenge represents the first practice of the material on Programming Logi
 
 ## Project Delivery :heavy_check_mark:
 
-All [requirements](#requirements) were met, including the development of the optional "copy" button feature. The web application was also developed considering a Responsive Web Design for mobiles. You can use the application on GitHub Pages by clicking on this [LINK]().
+All [requirements](#requirements) were met, including the development of the optional "copy" button feature. The web application was also developed considering a Responsive Web Design for mobiles. You can use the application on GitHub Pages by clicking on this [LINK](https://rafaeldasilvaperes.github.io/Primeiro-Challenge-Oracle-ONE/).
