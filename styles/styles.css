@@ -574,7 +574,7 @@ textarea::-webkit-scrollbar-thumb{
 		top: 0;
 		height: 5rem;
 	  width: 100vw;
-		
+		display: block;
 	}
 	.navbar-nav{
 		flex-direction: row;
@@ -733,4 +733,12 @@ textarea::-webkit-scrollbar-thumb{
 	}
 	.spacer{
 		display: none;}
+	main{
+		padding-top: 8rem;
+	}
+}
+@media only screen and (orientation: landscape) and (max-height: 600px){
+	main{
+		padding-top: 1.5rem;
+	}
 }
