@@ -21,16 +21,25 @@ function pegaTexto(){
 
 function mostrarTextEncriptado(){
 	var originaltext = fraseOriginal;
-	Encriptar(originaltext);
-	var text = fraseEncriptada;
-	document.getElementById("textareaDiv").innerHTML = text;
+	if(checagemTextoColado(originaltext) == false){
+		avisoCharIncorreto();
+	}else{
+		Encriptar(originaltext);
+		var text = fraseEncriptada;
+		document.getElementById("textareaDiv").innerHTML = text;
+	};
+	
 		}
 
 function mostrarTextDescriptado(){
-	var originaltext = fraseOriginal;
-	Desencriptar(originaltext);
-	var text = fraseDesencriptada;
-	document.getElementById("textareaDiv").innerHTML = text;
+	var originaltext = fraseOriginal
+	if(checagemTextoColado(originaltext) == false){
+		avisoCharIncorreto();
+	}else{
+		Desencriptar(originaltext);
+		var text = fraseDesencriptada;
+		document.getElementById("textareaDiv").innerHTML = text;
+	}
 		}
 
 function contadorLetras(){
@@ -108,6 +117,31 @@ function copiarTexto(){
 
 }
 
+function checagemTextoColado(texto){
+	const padrao = '[a-z !,?]';
+	for (i = 0; i < texto.length; i++) {
+		if(!texto[i].match(padrao)){
+			return false
+		}
+	}
+}
+function bemVindoConsoleLog(){
+	console.log(
+		"%cBem vindo ao Challenge One da Oracle ONE!",
+		`background-color: #fc6a03;
+		text-shadow: 3px 4px rgb(217,31,38);
+		background:linear-gradient(90deg, #fc6a03, #f29450);
+		font-weight: bold;
+		padding: 1rem;
+		color: white;
+		border-radius: 0.5em;
+		`
+	)
+	
+}
+
+//background:linear-gradient(90deg, #fc6a03, #0a72e9, #fc6a03);
+
 var fraseOriginal;
 var fraseEncriptada;
 var fraseDesencriptada;
@@ -126,4 +160,6 @@ var descrypt = document.getElementById("btn-exec-des");
 descrypt.addEventListener("click", mostrarTextDescriptado, false); 
 
 var copy = document.getElementById('btn-copy1');
-copy.addEventListener("click", copiarTexto, false); 
+copy.addEventListener("click", copiarTexto, false);
+
+bemVindoConsoleLog();
